@@ -1,0 +1,53 @@
+---
+title: "Week1_lab"
+author: "Joseph"
+date: "2024-06-22"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+#Assigning operators Week1
+```{r}
+
+x <- 10
+print(x)
+
+y <- 3.6
+print(y)
+
+string_a <- "Hello World"
+print(string_a)
+
+cat ("Hi this is my first mark down using cat function")
+
+# Addtion
+a <- 3
+b <- 7
+result <- a + b
+cat("Addition of ", a ,"and", b , "is", result)
+ 
+ # Subtraction
+a <- 3
+b <- 7
+result <- a - b
+ 
+cat("Subtraction of", a ,"and", b , "is", result)
+
+ # Multiplication
+a <- 6
+b <- 8
+result <- a * b
+ 
+cat("Multiplication of", a ,"and", b , "is", result)
+
+ # Division
+a <- 36
+b <- 5
+result <- a / b
+ 
+cat("Division of", a ,"and", b , "is", result)
+
+```
+
+

@@ -1,0 +1,101 @@
+---
+title: "Week6_lab"
+author: "Joseph"
+date: "2024-07-09"
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
+params: radius:5
+---
+## Built-in Functions:
+### Syntax: function_name(argument1, argument2, ...)
+```{r}
+numbers <- c(4, 7, 3, 8, 23, -4)
+sum_value <- sum(numbers)
+mean_value <- mean(numbers)
+max_value <- max(numbers)
+sort_value <- sort(numbers)
+abs_value <- abs(numbers)
+print(sum_value)
+print(mean_value)
+print(max_value)
+print(sort_value)
+print(abs_value)
+```
+# Example 2: User-defined Functions
+```{r}
+
+square <- function(x) {
+  return(x^2)
+}
+
+factorial <- function(n) {
+  if (n == 0 || n == 1)
+    return(1)
+  else
+    return(n * factorial(n - 1))
+}
+
+circle_area <- function(radius){
+  return(pi * radius^2)
+}
+
+result_square <- square(4)
+result_factorial <- factorial(5)
+result_area <- circle_area(4)
+
+cat("Square of the number 4 is :", result_square , "\n")
+
+cat("Factorial of the number 5 is:", result_factorial, "\n")
+
+cat("Area of the circle with radius 4 is:", result_area, "\n")
+
+
+default_passing <- function(name, age=10){
+  cat("Hello", name, "with age", age, "\n")
+}
+
+default_passing("naveen", 30)
+
+
+function_with_argument <- function(x){
+  result <- x * 2
+  return(result)
+}
+
+returned_result <- function_with_argument(4)
+cat("Returned results is", returned_result, " ")
+
+function_with_2_argument <- function(a,b){
+  result = a - b
+  return(result)
+}
+
+returned_subtract <- function_with_2_argument(19,9)
+cat("returned subtract",returned_subtract, "\n")
+
+```
+## Odd or even - Accept number from the user
+``` {r}
+
+even_odd  <- function(number) {
+  if (number %% 2 ==0){
+    return("Even")
+  }else
+    return("Odd")
+}
+number <- as.numeric(readline(prompt = "Enter the number: "))
+
+if (is.na(number)){
+  cat("Enter correct number")
+}else if(number<0){
+  abs_number = abs(number)
+  result_even_odd <- even_odd(abs_number)
+  cat("Enter number", number, "is", result_even_odd)
+}else{
+  result_even_odd <- even_odd(number)
+  cat("Enter number", number, "is", result_even_odd)
+}
+
+```

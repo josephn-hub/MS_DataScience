@@ -1,0 +1,85 @@
+---
+title: "Week7_lab1"
+author: "Joseph"
+date: "2024-07-09"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+``` {r setup, include=FALSE}
+knitr:: opts_chunk$set(echo = TRUE)
+
+```
+
+## Choose a file using a file dialog 
+```{r}
+#Syntax:
+# file_path <- file.choose() 
+# data <-  read.csv(file_path) 
+# print(data)
+
+## The above script is running fine when I run in interactive mode to 
+# choose the file from my local, And having issue while downloading from RMD so commenting out this in the file
+
+```
+
+## 1. Reading Files
+
+```{r}
+# Read as file with read mode
+file <- file("diabetes.csv", "r")  
+data_as_lines <- readLines(file)  # Read file contents as lines
+print(head(data_as_lines))
+
+# Read as csv file
+csv_file <- "diabetes.csv"
+data_as_csv <- read.csv(csv_file)  # Read file contents as a CSV file
+print(head(data_as_csv))
+
+```
+
+## 2. Writing to files
+
+``` {r}
+# Write to a text file
+txt_file <- file("/Users/josephkambham/Downloads/MS_R/students.txt", 'w') # Open a file in write mode
+data <- c("Machine Learning", "Artificial Intelligence", "Data Science")
+writeLines(data, txt_file, sep = "\n") # Write data to a file as lines
+close(txt_file)
+
+# Write to a csv file
+file <- "/Users/josephkambham/Downloads/MS_R/students.csv"
+data <-  data.frame(id = c(1,2,3), name=c("Jo","Mo","So"))
+write.csv(data, file)  # Write data to a file as a CSV file
+```
+
+## 3. Manipulating Files and Directories:
+```{r}
+# Create a directory
+dir.create("/Users/josephkambham/Downloads/MS_R/New/")
+
+ # Rename a file - file.rename("old_file", "new_file") 
+file.rename("students.txt", "students_new.txt")
+
+# List of files in the path
+files <-  list.files("/Users/josephkambham/Downloads/MS_R/")
+print(files)
+
+## To remove the files   file.remove("file_path")  #
+file_remove <- file.remove("/Users/josephkambham/Downloads/MS_R/matrix.xlsx")
+print(file_remove)
+
+### Check if files exists or not
+files_exists <-  file.exists("/Users/josephkambham/Downloads/MS_R/titanic.csv")
+print(files_exists)
+
+
+## move file to new loc
+
+file_move <- file.copy("/Users/josephkambham/Downloads/MS_R/fifa_data.csv", "/Users/josephkambham/Downloads/fifa_data.csv")
+print(file_move)
+
+# Check if a directory exists- dir.exists("directory_path") 
+dir.exists("/Users/josephkambham/Downloads/") 
+```

@@ -1,0 +1,47 @@
+---
+title: "Week2_lab"
+author: "Joseph"
+date: "2024-06-22"
+output:
+  pdf_document: default
+  html_document: default
+---
+## Week2_lab
+```{r}
+
+#Vectors:
+vector_a <- c(1,2,3,4,5)
+print(vector_a)
+
+# Adding and Mutiply Vectors
+a <- c(1,2,3)
+b <- c(3,4,5)
+
+d = c(a + b)
+cat("Addition of vectors", a ,"and",b,"is", d)
+
+e = c(a *b)
+cat("Multiplication of vectors", a ,"and",b,"is", e)
+
+#Matrices:
+
+matrix_a <- matrix(c(1,2,3,4,5,6,7,8) , nrow = 4,  ncol =2)
+print(matrix_a)
+
+# Factors:
+
+factor_a <- factor(c("Male", "Female", "Male", "Male"), levels = c("Male", "Female"))
+print(factor_a)
+
+# Data Frames:
+student_data_frame <- data.frame(name = c("John", "Jane", "Mike"), 
+                                   age = c(25, 30, 35),
+                                   grade = c("A","B","A+") )
+print(student_data_frame)
+
+# Example 5: Arithmetic operations
+result <- 35 + 40
+print(result)
+
+
+```

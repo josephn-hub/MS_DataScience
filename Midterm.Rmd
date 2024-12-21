@@ -1,0 +1,108 @@
+---
+title: "Midterm_Exam"
+author: "Joseph"
+date: "2024-07-13"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Q1. Create a dataframe in R named `student_data` with columns "Name," "Age," and "Grade."
+# Add at least five rows of data to the dataframe. . 
+```{r}
+students_data <-  data.frame(Name= c("jo", "christy", "kambham","Ahavah","Jay"),
+                         Age = c(32,6,30,4,31),
+                         Grade = c("A","A+","B","B+","A"))
+
+print(students_data)
+
+#create a list named `subject_grades`the grades of a student in three different subjects
+subject_grades <- list(Maths = c("A", "A+", "B", "B+"), 
+                       Science = c("A", "A+", "B","B+"),
+                      History = c("A", "A+", "B","B+"))
+print(subject_grades)
+```
+
+## Q2. Define a vector `num_vector` with values from 1 to 5. Convert this vector into a 2x3 matrix
+## named `num_matrix`. Print both the vector and the matrix.
+```{r}
+
+num_vector <- c(1:5)
+print(num_vector)
+
+num_matrix <- matrix(num_vector, nrow = 2 , ncol = 3)
+print(num_matrix)
+# Since num_vector has only 5 elements, the matrix function will recycle the elements to fill the matrix.(i.e 1 is here)
+```
+
+## Q3. Create a factor variable `weather` with levels "Sunny," "Cloudy," and "Rainy." 
+
+```{r}
+
+# By changing the value assigned to the factor then the print statement changes
+weather <- factor("Rainy", levels = c("Sunny", "Cloudy", "Rainy"))
+
+# Write aconditional statement that prints "Take an umbrella" if the weather is "Rainy" and 
+# "Enjoy the day" otherwise.
+if (weather == "Rainy") {
+  print("Take an umbrella")
+} else {
+  print("Enjoy the day")
+}
+
+```
+
+## Q4. Load any CSV file named "sales_data.csv" into an R dataframe. 
+
+```{r}
+library(dplyr)
+# Display the first 6 rows of the dataframe.
+sales_data <-  read.csv("sales_data.csv")
+
+head(sales_data,6)
+
+# Calculate and print the average sales value
+avg_sales <- mean(sales_data$Sales)
+cat("Average sales across products", avg_sales , "\n")
+
+```
+
+## Q5. Consider any dataframe having `employee_data`  with columns "Name," "Salary," and "Department." 
+
+``` {r}
+# Creating the employee_data dataframe
+employee_data <- data.frame(
+  Name = c("John", "Jane", "Doe", "Alice", "Bob"),
+  Salary = c(40000, 60000, 55000, 35000, 58000),
+  Department = c("HR", "IT", "Finance", "IT", "Marketing")
+)
+
+# Write an R script that identifies and prints the names of employees whose salary
+# is greater than $50,000 and belong to the "Marketing" department.
+
+filter_data_df <- employee_data[employee_data$Salary > 50000 & employee_data$Department=="Marketing",]
+
+print(filter_data_df)
+```
+
+# Q6. Create a list named `fruit_list` with elements "Apple," "Cherry," and "Strawberry." 
+```{r}
+fruit_list <- list("Apple" ,"Cherry" , "Strawberry")
+
+# Write a function `add_fruit` that takes a fruit name as an argument and adds it to the list.
+add_fruit <-  function(fruit_name) {
+
+  new_list <- append(fruit_list,fruit_name)
+  print(new_list)
+  
+}
+
+#Call the function to add "Grapes" to the list and print the updated list
+
+add_grapes <- add_fruit("Grapes")
+
+```

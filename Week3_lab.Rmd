@@ -1,0 +1,56 @@
+---
+title: "Week3_lab"
+author: "Joseph"
+date: "2024-06-22"
+output:
+  pdf_document: default
+  html_document: default
+---
+## Week3 Lab
+```{r} 
+# if-else Statements:
+   age <- 30
+     if (age > 18) {
+       print("Person is eligible for vote")
+     } else {
+       print("Not eligible for vote!!")
+     }
+
+# Nested if-else Statements:
+x <- 45
+y <- 59
+
+if (x > y) {
+  print("X IS greater than y")
+}else if (x ==y) {
+  print("x is equal y")
+} else {
+  print("y greater than x")
+}
+
+
+#for Loop:
+for (i in 1:9){
+  print(i)
+  i =i +1
+};
+
+#4. while Loop:
+i <- 1
+while (i <= 10) {
+  print(i)
+  i <- i + 1
+}
+
+#5. repeat Loop:
+  i <- 1
+repeat {
+  print(i)
+  i <- i + 1
+  if (i > 5) {
+    break
+  }
+}
+
+```
+

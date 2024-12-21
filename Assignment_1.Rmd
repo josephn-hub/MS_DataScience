@@ -1,0 +1,91 @@
+---
+title: "Assignment_1"
+author: "Joseph"
+date: "2024-07-10"
+output:
+  pdf_document: 
+    latex_engine: lualatex
+  html_document: default
+  word_document: default
+---
+
+## Write an R script that prompts the user to enter two numbers and calculates their sum. 
+##Display the result with an appropriate message.
+
+```{r}
+x <- as.numeric(readline(prompt = "Enter number x : "))
+y <- as.numeric(readline(prompt = "Enter number y: "))
+
+sum_of_numbers <- function(x,y){
+  result <- x + y
+  cat("Addtion of", x ,"and", y , result)
+  }
+
+cal_result <- sum_of_numbers(x,y)
+
+```
+
+## Write an R script that reads a CSV file named "data.csv" containing student names and their corresponding test scores. Calculate the average score and display it along with the highest and lowest scores.
+
+```{r}
+student_df <- read.csv("data.csv")
+print(student_df)
+
+avg_score <- mean(student_df$TestScore)
+high_score <- max(student_df$TestScore)
+low_score <- min(student_df$TestScore)
+
+  cat("Average Test Score:", avg_score, "\n")
+  cat("Highest Test Score:", high_score, "\n")
+  cat("Lowest Test Score:", low_score, "\n")
+```
+
+## Write an R script that generates a random integer between 1 and 10 and asks the user to guess the number. Provide feedback to the user if their guess is too high or too low, and continue until they guess the correct number.
+
+```{r setup, include=FALSE}
+random_integer <- sample(1:10, 1)
+while (TRUE){
+ user_input <- as.numeric(readline(prompt = "Guess the number (between 1 and 10): "))
+
+ # Validate the user input
+ if (is.na(user_input) || user_input < 1 || user_input > 10) {
+   cat("Please enter a valid number between 1 and 10.\n")
+     next
+  }
+if (user_input > random_integer){
+   print("User guess is too high")
+ } else if (user_input < random_integer){
+ print("User guess is too low")
+ } else {
+   print("You guessed correctly")
+   break
+ }
+ }
+
+```
+
+## Write an R script that defines a function called "factorial" which takes an integer as input and calculates its factorial. Test the function by calling it with different input values.
+
+```{r}
+factorial <- function(n){
+  if (n == 1 || n==0){
+    return(1)
+  }else {
+    result <- 1
+    for (i in 2:n) {
+      result <- result * i
+    }
+    return(result)
+  }
+}
+
+# Change of list of numbers as needed
+list_of_numbers <- list(4,6,7,4,3)
+
+for (i in list_of_numbers){
+ factorial_result <-  factorial(i)
+ cat("Factorial of number", i, "is", factorial_result, "\n")
+ 
+}
+
+```

@@ -1,0 +1,100 @@
+---
+title: "Assignment_2"
+author: "Joseph"
+date: "2024-07-11"
+output:
+  pdf_document: 
+    latex_engine: lualatex
+  html_document: default
+---
+``` {r setup, include=FALSE}
+knitr:: opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(datasets)
+#install.packages("ggplot2")
+library(ggplot2)
+```
+
+## Load the "mtcars" dataset from the built-in datasets in R. Write an R script to perform the following tasks:
+```{r}
+### Calculate the average miles per gallon (mpg) for all cars in the dataset.
+data <- mtcars
+avg_miles_per_gallon <-  mean(data$mpg)
+
+cat("Average miles per gallon(mpg) is ", avg_miles_per_gallon ,"\n")
+
+### Create a bar plot to visualize the number of cylinders (cyl) for each car.
+barplot(data$cyl, main="Bar plot", xlab = "Number of cylinder", ylab = "count", col="skyblue", border = "black", lwd=3)
+
+```
+
+## Write an R script to read a CSV file named "sales_data.csv" containing sales data for different products. Perform the following tasks:
+
+```{r}
+
+library(dplyr)
+library(tidyverse)
+
+# Calculate the total sales for each product category.
+sales_data <-  read.csv("sales_data.csv")
+
+total_sales_by_product <- sales_data  %>% group_by(Product) %>%  summarise(sum_total_sales = sum(Sales)
+ ) 
+
+print(total_sales_by_product)
+
+# Generate a line plot to visualize the monthly sales trend for one of the product categories.
+sales_data$Date <- as.Date(sales_data$Date)
+
+print(sales_data)
+
+## Filter data for the specified product category and adding new month column
+filtered_data <- sales_data %>% 
+mutate(Month = format(sales_data$Date, "%b")) %>%  filter(sales_data$Product == "Heater")
+
+print(filtered_data)
+
+## Line Plot
+plot(factor(filtered_data$Month),filtered_data$Sales,
+     type="l", # type "o" for points and lines
+     col = "blue",
+     xlab = "Product",
+     ylab = "Total Sales",
+     lwd=5,
+     main = paste("Monthly Sales Trend"))
+
+## Add a legend
+legend("topright", legend = "Heater", col = "green", lty = 1, cex = 0.8)
+
+```
+
+## Write an R script to generate a scatter plot using random data. The scatter plot should have 100 points with x and y coordinates ranging from 1 to 100. Add labels and a title to the plot.
+
+```{r}
+set.seed(1)
+
+x <- rnorm(100)
+y <- rnorm(100)
+
+plot(x,y , main="Scatter between x and y", xlab = "x axis", ylab = "y axis", col="violet", lwd=4)
+
+```
+
+## Load the "iris" dataset from the built-in datasets in R. 
+## Create a box plot to visualize the distribution of petal widths (Petal.Width) for each species.
+
+```{r}
+## Calculate the average sepal length (Sepal.Length) for each species.
+
+grouped_data <- iris %>% group_by(Species)%>% 
+ summarise(avg_sep_length <- mean(Sepal.Length))
+
+print(grouped_data)
+
+### Create a box plot to visualize the distribution of petal widths (Petal.Width) for each species
+library(ggplot2)
+ggplot(iris, aes(x = Species, y=Petal.Width)) +
+  geom_boxplot(fill="skyblue") +
+  ggtitle("Boxplot : Petal Width by species")
+
+```

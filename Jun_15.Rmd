@@ -1,0 +1,85 @@
+---
+title: "first_rmd"
+author: "Joseph"
+date: "2024-06-15"
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+Program1 
+
+``` {r}
+
+number <- as.integer(readline("Enter a number: "))
+
+if (isTRUE(number %%2 == 0)==TRUE){
+  cat(number, "is even number \n ")
+}else{
+  cat(number, "is odd number \n ")
+}
+```
+
+Program 2
+
+``` {r}
+
+num1 <- as.numeric(readline('Enter a number: '))
+num2 <- as.numeric(readline("Eneter a number 2: "))
+
+operation<- readline("Enter the operation you need (+,-,*,/): ")
+
+if (operation == '+'){
+  result = num1 + num2
+  cat("Addtion of", num1 ,"and", num2 , "is", result)
+} else if (operation == '-'){
+  result = num1 - num2
+  cat("Sub of", num1 ,"and", num2 , "is", result)
+}else if (operation == '*'){
+  result = num1 * num2
+  cat("Mul of", num1 ,"and", num2 , "is", result)
+}else if (operation == '/'){
+  result = num1 / num2
+  cat("Div of", num1 ,"and", num2 , "is", result)
+}
+```
+
+Program 3
+``` {r}
+num1 <- as.numeric(readline('Enter a number1: '))
+num2 <- as.numeric(readline("Eneter a number 2: "))
+
+max_function <- function() {
+  
+  max_number <- max(num1, num2)
+  return(max_number)
+}
+
+max_function()
+```

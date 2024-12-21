@@ -1,0 +1,10 @@
+Product,Sales,Region,Date
+Heater,150,North,2024-01-01
+Microwave,200,East,2024-02-01
+Kettle,300,West,2024-01-03
+Heater,400,South,2024-03-04
+Microwave,250,North,2024-01-05
+Kettle,350,East,2024-04-06
+Heater,450,West,2024-05-07
+Microwave,100,South,2024-06-08
+Kettle,500,North,2024-02-09
